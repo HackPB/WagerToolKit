@@ -492,6 +492,7 @@ public class MainActivity extends AppCompatActivity {
 
                 } else {
                     mToast("Download error: Please do it again!");
+                    unregisterReceiver(this);
                     //unregisterReceiver(this);
                     mProgressDialog.dismiss();
 
