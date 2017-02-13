@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
                     secondButton.setEnabled(false);
                     thirdButton.setEnabled(false);
                     thirdButton.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
-
+                    /**TEST */
                 }
                 showButtons();
             }
