@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">WagerToolKit</string>
+    <string name="app_url">https://www.wagertool.com/media/files/download/Wagertool.apk</string>
+    <string name="notification_description">"Downloading. Please wait."</string>
+    <string name="firstText">Wagertool KIT will help you understand better how you can take full advantage of the Wagertool® trading software in your mobile Android device.</string>
+    <string name="sources">Activate Unknown Sources</string>
+    <string name="takingTo">Taking You to Unknown Sources</string>
+    <string name="get">Get Wagertool® full version</string>
+    <string name="install">Install Wagertool®</string>
+    <string name="launch">Launch Wagertool® full version</string>
+    <string name="Warning">WARNING</string>
+    <string name="NoWifi">No Wifi Detected...You are about to download a %1$s file size! Proceed anyway?</string>
+    <string name="NoInternet">No Internet Detected...Do You want to activate Wifi to download?</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    <string name="ActivateWifi">Activate Wifi</string>
+    <string name="demo">DEMONSTRATION</string>
+    <string name="look">Wagertool® mobile app look and behave look and feel native because they are. It looks and behave the way you expect.</string>
+    <string name="featureTitle">FEATURES</string>
+    <string name="features"> Ladder view,
+                            \n Grid view,
+                            \n Price-volume chart,
+                            \n Personalized filters,
+                            \n Automation trading options,
+                            \n Recent opened markets,
+                            \n Global or individual quick cashout,
+                            \n Quick management of unmatched bets,
+                            \n 4 different staking modes,
+                            \n Personalized stake list,
+                            \n Soccer and tennis livescores,
+                            \n Info of tv or livestream broadcast,
+                            \n Search events by keywords,
+                            \n Search events by tree view.
+    </string>
+    <string name="userGuide">USER GUIDE</string>
+    <string name="userGuideButton">Open User Guide</string>
+    <string name="userGuideDescription">Click to view the full user guide and learn all the tricks and capabilities of Wagertool® trading software.</string>
+    <string name="multiPlatform">The user guide has all the functions available in the Windows desktop version. Wagertool® is a multi-platform software available for all your devices included in a single subscription plan.</string>
+    <string name="copyRight">Copyright © 2016-2017 Wagertool®</string>
+</resources>

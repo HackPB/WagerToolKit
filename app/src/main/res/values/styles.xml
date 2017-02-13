@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:button">@style/Button</item>
+        <item name="android:tileMode">@style/TextTitle</item>
+        <item name="android:text">@style/TextNormal</item>
+    </style>
+
+    <style name="Button" parent="android:style/Widget.Button">
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@drawable/down</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:drawablePadding">0dp</item>
+        <item name="android:textColor">@drawable/btn_textcolor_selector</item>
+    </style>
+
+    <style name="TextTitle" parent="Base.TextAppearance.AppCompat">
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFF</item>
+    </style>
+
+    <style name="TextNormal" parent="Base.TextAppearance.AppCompat">
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFF</item>
+    </style>
+</resources>

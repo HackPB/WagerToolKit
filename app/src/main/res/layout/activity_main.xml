@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"><!--IMPORTANT otherwise if we background img. will not fill the whole screen -->
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.codigree.wagertoolkit.MainActivity"
+    android:background="@color/colorPrimary"
+    android:fontFamily="sans-serif"
+    android:gravity="center"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+
+      >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_logo_wtkit_white"
+            android:id="@+id/wagertoolkit"
+            android:layout_marginTop="10dp"
+            android:paddingTop="5dp"
+            android:focusableInTouchMode="true"
+
+            />
+
+        <TextView
+            style="@style/TextNormal"
+            android:text="@string/firstText"
+            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:id="@+id/textView"
+            />
+
+
+        <Button
+            style="@style/Button"
+            android:id="@+id/firstButton"
+            android:text="@string/sources"
+            android:layout_marginTop="96dp"
+            android:onClick="firstButtonClick"
+            android:background="@drawable/down"
+            android:drawableLeft="@mipmap/arrow"
+            android:drawableStart="@mipmap/arrow">
+        </Button>
+
+        <Button
+            style="@style/Button"
+            android:text="@string/get"
+            android:id="@+id/secondButton"
+            android:background="@drawable/down"
+            android:onClick="secondButtonClick"
+            android:drawableLeft="@mipmap/download"
+            android:drawableStart="@mipmap/download"
+            />
+
+        <Button
+            style="@style/Button"
+            android:text="@string/install"
+            android:id="@+id/thirdButton"
+            android:background="@drawable/down"
+            android:onClick="thirdButtonClick"
+            android:drawableLeft="@mipmap/install"
+            android:drawableStart="@mipmap/install"
+            />
+
+
+        <Button
+            style="@style/Button"
+            android:text="@string/launch"
+            android:id="@+id/fourthButton"
+            android:background="@drawable/down"
+            android:onClick="fourthButtonClick"
+            android:drawableLeft="@mipmap/launch"
+            android:drawableStart="@mipmap/launch"
+            />
+
+
+        <TextView
+            style="@style/TextTitle"
+            android:text="@string/demo"
+            android:paddingTop="20dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/demo"
+            android:textAlignment="center"
+            />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="650dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:id="@+id/video"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/video_screenshot"
+            android:clickable="true"
+            android:onClick="videoClick"
+            />
+
+        <TextView
+            style="@style/TextNormal"
+            android:text="@string/look"
+            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/look"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            style="@style/TextTitle"
+            android:text="@string/featureTitle"
+            android:paddingTop="10dp"
+            android:layout_marginTop="96dp"
+            android:id="@+id/featureTitle"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            style="@style/TextNormal"
+            android:text="@string/features"
+            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/features"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            style="@style/TextTitle"
+            android:text="@string/userGuide"
+            android:paddingTop="10dp"
+            android:layout_marginTop="96dp"
+            android:id="@+id/userGuide"
+            android:textAlignment="center"
+            />
+
+        <Button
+            style="@style/Button"
+            android:text="@string/userGuideButton"
+            android:id="@+id/userGuideButton"
+            android:background="@drawable/down"
+            android:onClick="userGuideClick"
+            />
+
+        <TextView
+            style="@style/TextNormal"
+            android:text="@string/userGuideDescription"
+            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/userGuideDescription"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            style="@style/TextNormal"
+            android:text="@string/multiPlatform"
+            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/multiPlatform"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            style="@style/TextNormal"
+            android:text="@string/copyRight"
+            android:paddingTop="96dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:id="@+id/copyRight"
+            android:textAlignment="center"
+            />
+
+
+    </LinearLayout>
+
+</ScrollView>
