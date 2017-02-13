@@ -65,32 +65,10 @@
             android:drawableStart="@mipmap/download"
             />
 
-        <Button
-            style="@style/Button"
-            android:text="@string/install"
-            android:id="@+id/thirdButton"
-            android:background="@drawable/down"
-            android:onClick="thirdButtonClick"
-            android:drawableLeft="@mipmap/install"
-            android:drawableStart="@mipmap/install"
-            />
-
-
-        <Button
-            style="@style/Button"
-            android:text="@string/launch"
-            android:id="@+id/fourthButton"
-            android:background="@drawable/down"
-            android:onClick="fourthButtonClick"
-            android:drawableLeft="@mipmap/launch"
-            android:drawableStart="@mipmap/launch"
-            />
-
-
         <TextView
             style="@style/TextTitle"
             android:text="@string/demo"
-            android:paddingTop="20dp"
+            android:paddingTop="80dp"
             android:layout_marginTop="10dp"
             android:id="@+id/demo"
             android:textAlignment="center"
