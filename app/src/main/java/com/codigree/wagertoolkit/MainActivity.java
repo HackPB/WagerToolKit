@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.database.ContentObserver;
+import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -458,12 +459,12 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter filter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
 
 
-        //Dialog with cancel button to cancel de download by downloadId
-            mProgressDialog = new ProgressDialog(MainActivity.this);
-            mProgressDialog.setMessage("Downloading Wagertool");
-            mProgressDialog.setIndeterminate(true);
-            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            mProgressDialog.setCancelable(false);
+        mProgressDialog = new ProgressDialog(MainActivity.this);
+        mProgressDialog.setMessage("Downloading Wagertool");
+        mProgressDialog.setProgress(0);
+        //mProgressDialog.setIndeterminate(true);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        mProgressDialog.setCancelable(false);
         mProgressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -471,7 +472,51 @@ public class MainActivity extends AppCompatActivity {
                 manager.remove(downloadId);
             }});
 
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                boolean downloading = true;
+                try {
+                    while (downloading) {
+
+                        DownloadManager.Query q = new DownloadManager.Query();
+                        q.setFilterById(downloadId); //filter by id which you have receieved when reqesting download from download manager
+                        Cursor cursor = manager.query(q);
+                        cursor.moveToFirst();
+
+                        int bytes_downloaded = cursor.getInt(cursor
+                                .getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+                        int bytes_total = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+
+                        if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
+                            downloading = false;
+                        }
+
+                        final int dl_progress = (int) ((bytes_downloaded * 100l) / bytes_total);
+
+                        runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+
+                                mProgressDialog.setProgress(dl_progress);
+
+                            }
+                        });
+
+                        // Log.d(Constants.MAIN_VIEW_ACTIVITY, statusMessage(cursor));
+                        cursor.close();
+                    }
+                }catch (Exception e){
+                    Log.i("erro", "erro");
+                }
+            }
+        }).start();
             mProgressDialog.show();
+        //Dialog with cancel button to cancel de download by downloadId
+
 
 
        final BroadcastReceiver onComplete = new BroadcastReceiver() {
