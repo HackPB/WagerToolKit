@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         Button secondButton = (Button) findViewById(R.id.secondButton);
 
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/Wagertool.apk");
-            if (isAppInstalled("KeepItSoft.Wagertool.Phone")){
+            if (isAppInstalled("KeepItSoft.Wagertool.Phone") && !isNonPlayAppAllowed){
                 //fourthButton.setVisibility(View.VISIBLE);
                 Drawable img = ActivityCompat.getDrawable(getApplicationContext(), R.mipmap.launch);
                 secondButton.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 //leftButton.setImageResource(R.drawable.remove);
 
-            }else if (file.exists() && !isAppInstalled("KeepItSoft.Wagertool.Phone")){
+            }else if (file.exists() && !isAppInstalled("KeepItSoft.Wagertool.Phone") && !isNonPlayAppAllowed){
                 Drawable img = ActivityCompat.getDrawable(getApplicationContext(), R.mipmap.install);
                 secondButton.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
                 secondButton.setText(MainActivity.this.getString(R.string.install));
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
-            }else if (file.exists()){
+            }else if (file.exists()&& !isNonPlayAppAllowed){
                 Drawable img = ActivityCompat.getDrawable(getApplicationContext(), R.mipmap.install);
                 secondButton.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
                 secondButton.setText(MainActivity.this.getString(R.string.install));
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-            }else {
+            }else if (!isNonPlayAppAllowed) {
                 Drawable img = ActivityCompat.getDrawable(getApplicationContext(), R.mipmap.download);
                 secondButton.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
                 secondButton.setText(MainActivity.this.getString(R.string.get));
@@ -149,6 +149,8 @@ public class MainActivity extends AppCompatActivity {
                         secondButtonClick(view);
                     }
                 });
+            }else{
+                secondButton.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
             }
 
 
@@ -190,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (isNonPlayAppAllowed) {
             firstButton.setEnabled(true);
+            firstButton.setVisibility(View.VISIBLE);
             Drawable img = ActivityCompat.getDrawable(getApplicationContext(), R.mipmap.arrow);
             firstButton.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
             //img.setColorFilter(0xffff0000, PorterDuff.Mode.MULTIPLY); -- if we want to change the color of the image in left
@@ -199,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
         }else {
             firstButton.setEnabled(false);
             firstButton.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
+            firstButton.setVisibility(View.GONE);
             secondButton.setEnabled(true);
 
         }
@@ -212,15 +216,21 @@ public class MainActivity extends AppCompatActivity {
                 int enabled = Settings.System.getInt(getContentResolver(), Settings.Secure.INSTALL_NON_MARKET_APPS, 0);
 
                 if (enabled==1) {
+                    recreate();
                     firstButton.setEnabled(false);
                     firstButton.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
+                    firstButton.setVisibility(View.GONE);
                     secondButton.setEnabled(true);
 
+
                 }else {
+                    recreate();
                     firstButton.setEnabled(true);
+                    firstButton.setVisibility(View.VISIBLE);
                     Drawable img = ActivityCompat.getDrawable(getApplicationContext(), R.mipmap.arrow);
                     firstButton.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
                     secondButton.setEnabled(false);
+                    secondButton.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
                     /**TEST */
                 }
                 showButtons();
@@ -510,8 +520,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         isStoragePermissionGranted();
-        sources();
         showButtons();
+        sources();
         ImageView logo = (ImageView) findViewById(R.id.wagertoolkit);
         logo.requestFocus();
 

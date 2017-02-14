@@ -40,6 +40,7 @@
             android:paddingTop="10dp"
             android:layout_marginTop="10dp"
             android:textAlignment="center"
+            android:layout_marginBottom="96dp"
             android:id="@+id/textView"
             />
 
@@ -48,7 +49,6 @@
             style="@style/Button"
             android:id="@+id/firstButton"
             android:text="@string/sources"
-            android:layout_marginTop="96dp"
             android:onClick="firstButtonClick"
             android:background="@drawable/down"
             android:drawableLeft="@mipmap/arrow"
@@ -61,8 +61,6 @@
             android:id="@+id/secondButton"
             android:background="@drawable/down"
             android:onClick="secondButtonClick"
-            android:drawableLeft="@mipmap/download"
-            android:drawableStart="@mipmap/download"
             />
 
         <TextView
