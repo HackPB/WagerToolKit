@@ -11,6 +11,11 @@
     <string name="Warning">WARNING</string>
     <string name="NoWifi">No Wifi Detected...You are about to download a %1$s file size! Proceed anyway?</string>
     <string name="NoInternet">No Internet Detected...Do You want to activate Wifi to download?</string>
+    <string name="ConnectingServer">Connecting to Server</string>
+    <string name="wait">Please Wait...</string>
+    <string name="Downloading">Downloading WagerTool</string>
+    <string name="Cancel">Cancel</string>
+    <string name="downloaError">Download error: Please do it again!</string>
     <string name="Yes">Yes</string>
     <string name="No">No</string>
     <string name="ActivateWifi">Activate Wifi</string>

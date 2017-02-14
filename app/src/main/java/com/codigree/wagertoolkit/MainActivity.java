@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
 /**Function for toast message */
     Toast toast = null;
     public void mToast(String message){
@@ -81,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
 /**Function to know if wagertool is installed */
     public boolean isAppInstalled(String packageName) {
         PackageManager pm = getPackageManager();
@@ -94,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return installed;
     }
-
 
 
 
@@ -160,14 +157,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
 /**to delete file in download folder onclick */
     public void delete (){
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/Wagertool.apk");
         file.delete();
         recreate();
     }
-
 
 
 
@@ -178,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(LaunchIntent);
         recreate();
     }
-
 
 
 
@@ -206,10 +200,9 @@ public class MainActivity extends AppCompatActivity {
             firstButton.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
             firstButton.setVisibility(View.GONE);
             secondButton.setEnabled(true);
-
         }
 
-/**verification of changes in unknown sources */
+    /**verification of changes in unknown sources */
         ContentObserver observer = new ContentObserver(null) {
             @Override
             public void onChange(boolean selfChange) {
@@ -223,7 +216,6 @@ public class MainActivity extends AppCompatActivity {
                     firstButton.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
                     firstButton.setVisibility(View.GONE);
                     secondButton.setEnabled(true);
-
 
                 }else {
                     recreate();
@@ -252,9 +244,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
 /**Function file size */
-
     public static String formatSize(long size) {
         String hrSize = null;
 
@@ -280,7 +270,6 @@ public class MainActivity extends AppCompatActivity {
 
         return hrSize;
     }
-
 
     public String fsize = " aprox. 89 MB";
         public class DownloadTask extends AsyncTask<String, Void, String> {
@@ -365,7 +354,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
 /**Function to check connection and type of internet connection */
     public void checkConnection () {
         final ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
@@ -380,7 +368,10 @@ public class MainActivity extends AppCompatActivity {
                         download();
                     }else if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE){
                         //mobile data
-                        progress = ProgressDialog.show(this,"Connecting to Server","Please Wait...", true); //message to display till return of file size
+                        progress = ProgressDialog.show(this,
+                                MainActivity.this.getString(R.string.ConnectingServer),
+                                MainActivity.this.getString(R.string.wait), true); //message to display till return of file size
+
                         new  Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -460,18 +451,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         mProgressDialog = new ProgressDialog(MainActivity.this);
-        mProgressDialog.setMessage("Downloading Wagertool");
+        mProgressDialog.setMessage(MainActivity.this.getString(R.string.Downloading));
         mProgressDialog.setProgress(0);
         //mProgressDialog.setIndeterminate(true);
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         mProgressDialog.setCancelable(false);
-        mProgressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
+        mProgressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, MainActivity.this.getString(R.string.Cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
                 manager.remove(downloadId);
             }});
 
+        //code to view progress - with try and catch because of cancel button, or else it will throw an error because value of int will be 0
         new Thread(new Runnable() {
 
             @Override
@@ -482,7 +474,7 @@ public class MainActivity extends AppCompatActivity {
                     while (downloading) {
 
                         DownloadManager.Query q = new DownloadManager.Query();
-                        q.setFilterById(downloadId); //filter by id which you have receieved when reqesting download from download manager
+                        q.setFilterById(downloadId); //filter by id which you have received when requesting download from download manager
                         Cursor cursor = manager.query(q);
                         cursor.moveToFirst();
 
@@ -506,17 +498,14 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
 
-                        // Log.d(Constants.MAIN_VIEW_ACTIVITY, statusMessage(cursor));
                         cursor.close();
                     }
                 }catch (Exception e){
-                    Log.i("erro", "erro");
+                    Log.i("erro", "erro so that cancel button works");
                 }
             }
         }).start();
             mProgressDialog.show();
-        //Dialog with cancel button to cancel de download by downloadId
-
 
 
        final BroadcastReceiver onComplete = new BroadcastReceiver() {
@@ -524,6 +513,7 @@ public class MainActivity extends AppCompatActivity {
             public void onReceive(Context context, Intent intent) {
 
                 mProgressDialog.dismiss();
+
                 if (file.exists()) {
                     Intent install = new Intent(Intent.ACTION_VIEW);
                     MimeTypeMap mime = MimeTypeMap.getSingleton();
@@ -547,9 +537,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                 } else {
-                    mToast("Download error: Please do it again!");
+                    mToast(MainActivity.this.getString(R.string.downloaError));
                     unregisterReceiver(this);
-                    //unregisterReceiver(this);
                     mProgressDialog.dismiss();
 
                 }
@@ -557,7 +546,6 @@ public class MainActivity extends AppCompatActivity {
         };
         registerReceiver(onComplete, filter);
     }
-
 
 
 
