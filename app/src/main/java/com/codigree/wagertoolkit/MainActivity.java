@@ -103,8 +103,9 @@ public class MainActivity extends AppCompatActivity {
         Button secondButton = (Button) findViewById(R.id.secondButton);
 
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/Wagertool.apk");
-            if (isAppInstalled("KeepItSoft.Wagertool.Phone") && !isNonPlayAppAllowed){
+            if (isAppInstalled("KeepItSoft.Wagertool.Phone")){
                 //fourthButton.setVisibility(View.VISIBLE);
+                secondButton.setEnabled(true);
                 Drawable img = ActivityCompat.getDrawable(getApplicationContext(), R.mipmap.launch);
                 secondButton.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
                 secondButton.setText(MainActivity.this.getString(R.string.launch));
