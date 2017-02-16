@@ -563,17 +563,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume (){
+        super.onResume();
         sources();
         showButtons();
         //mToast("Resume");
-        super.onResume();
     }
 
     @Override
     public void onPause () {
+        super.onPause();
         if(toast != null)
             toast.cancel();
-        super.onPause();
     }
 
     @Override
