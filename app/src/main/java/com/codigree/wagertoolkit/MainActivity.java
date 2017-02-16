@@ -486,7 +486,7 @@ public class MainActivity extends AppCompatActivity {
                             downloading = false;
                         }
 
-                        final int dl_progress = (int) ((bytes_downloaded * 100l) / bytes_total);
+                        final int dl_progress = (int) ((bytes_downloaded * 100L) / bytes_total);
 
                         runOnUiThread(new Runnable() {
 
