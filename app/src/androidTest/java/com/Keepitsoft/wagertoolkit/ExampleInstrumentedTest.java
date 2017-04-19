@@ -1,4 +1,4 @@
-package com.codigree.wagertoolkit;
+package com.Keepitsoft.wagertoolkit;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

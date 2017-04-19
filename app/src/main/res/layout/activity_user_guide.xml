@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.codigree.wagertoolkit.UserGuideActivity">
+    tools:context="com.Keepitsoft.wagertoolkit.UserGuideActivity">
 
     <WebView
         android:layout_width="match_parent"

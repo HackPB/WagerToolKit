@@ -14,7 +14,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.codigree.wagertoolkit.MainActivity"
+    tools:context="com.Keepitsoft.wagertoolkit.MainActivity"
     android:background="@color/colorPrimary"
     android:fontFamily="sans-serif"
     android:gravity="center"

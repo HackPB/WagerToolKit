@@ -1,4 +1,4 @@
-package com.codigree.wagertoolkit;
+package com.Keepitsoft.wagertoolkit;
 
 import org.junit.Test;
 

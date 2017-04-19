@@ -1,4 +1,4 @@
-package com.codigree.wagertoolkit;
+package com.Keepitsoft.wagertoolkit;
 
 import android.graphics.Bitmap;
 import android.os.Build;

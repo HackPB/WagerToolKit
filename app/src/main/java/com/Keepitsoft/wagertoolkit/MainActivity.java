@@ -1,4 +1,4 @@
-package com.codigree.wagertoolkit;
+package com.Keepitsoft.wagertoolkit;
 
 import android.Manifest;
 import android.app.DownloadManager;
@@ -30,7 +30,6 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
@@ -166,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-/**Function to install wager */
+/**Function to launch wager */
     public void launchWager(){
         Intent LaunchIntent = getPackageManager()
                 .getLaunchIntentForPackage("KeepItSoft.Wagertool.Phone");
@@ -340,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), "com.codigree.wagertoolkit.fileProvider", videofile);
+            Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), "com.Keepitsoft.wagertoolkit.fileProvider", videofile);
             intent.setDataAndType(contentUri, type);
             startActivity(intent);
             recreate();
@@ -522,7 +521,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         install.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), "com.codigree.wagertoolkit.fileProvider", file);
+                        Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), "com.Keepitsoft.wagertoolkit.fileProvider", file);
                         install.setDataAndType(contentUri, type);
                         startActivity(install);
                         recreate();
@@ -614,7 +613,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 install.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), "com.codigree.wagertoolkit.fileProvider", file);
+                Uri contentUri = FileProvider.getUriForFile(getApplicationContext(), "com.Keepitsoft.wagertoolkit.fileProvider", file);
                 install.setDataAndType(contentUri, type);
                 startActivity(install);
                 recreate();
