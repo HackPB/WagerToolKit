@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1002494162065",
+    "firebase_url": "https://wagertool-kit.firebaseio.com",
+    "project_id": "wagertool-kit",
+    "storage_bucket": "wagertool-kit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002494162065:android:ce1d6ed0d2e26da3",
+        "android_client_info": {
+          "package_name": "com.Keepitsoft.wagertoolkit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1002494162065-eh0ibp9h1hm0cs9qka45jkmh4fv8k2i3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Keepitsoft.wagertoolkit",
+            "certificate_hash": "8cc999c71b439fa44aa7dfec2909eb7b05808712"
+          }
+        },
+        {
+          "client_id": "1002494162065-lgr81k6i8l0sf8t3m8vauu28mqecm5cg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlVB8lCwQ6Zu2ymJdcp7UwSZwvsyy9ty4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1002494162065-lgr81k6i8l0sf8t3m8vauu28mqecm5cg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

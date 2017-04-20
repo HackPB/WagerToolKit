@@ -25,6 +25,7 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -32,6 +33,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -43,7 +46,7 @@ import java.text.DecimalFormat;
 
 
 public class MainActivity extends AppCompatActivity {
-
+private FirebaseAnalytics mFirebaseAnalytics;
 /**Ask storage permission for android 6.0 or sup */
     public boolean isStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
@@ -430,9 +433,29 @@ public class MainActivity extends AppCompatActivity {
 
     public  void download(){
 
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "downnnn");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+        //mToast(String.valueOf(bundle));
 
         manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-        String url = MainActivity.this.getString(R.string.app_url);
+        String url;
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        float yInches= metrics.heightPixels/metrics.ydpi;
+        float xInches= metrics.widthPixels/metrics.xdpi;
+        double diagonalInches = Math.sqrt(xInches*xInches + yInches*yInches);
+        if (diagonalInches>=7.5){
+            // 7.5inch device or bigger
+            //mToast("tablet");
+            url = MainActivity.this.getString(R.string.app_urltablet);
+        }else{
+            // smaller device
+            //mToast(String.valueOf(diagonalInches));
+            url = MainActivity.this.getString(R.string.app_url);
+        }
+
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url))
                                                 .setDescription(MainActivity.this.getString(R.string.notification_description))
                                                 .setTitle(MainActivity.this.getString(R.string.app_name));
@@ -557,6 +580,9 @@ public class MainActivity extends AppCompatActivity {
         sources();
         ImageView logo = (ImageView) findViewById(R.id.wagertoolkit);
         logo.requestFocus();
+
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
     }
 

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">WagerToolKit</string>
     <string name="app_url">https://www.wagertool.com/media/files/download/Wagertool.apk</string>
+    <string name="app_urltablet">https://www.wagertool.com/media/files/download/WagertoolTablet.apk</string>
     <string name="notification_description">"Downloading. Please wait."</string>
     <string name="firstText">Wagertool KIT will help you understand better how you can take full advantage of the Wagertool® trading software in your mobile Android device.</string>
     <string name="sources">Activate Unknown Sources</string>
