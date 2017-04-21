@@ -434,8 +434,9 @@ private FirebaseAnalytics mFirebaseAnalytics;
     public  void download(){
 
         Bundle bundle = new Bundle();
-        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "downnnn");
-        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Button");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Download");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Download");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "DownloadButton");
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
         //mToast(String.valueOf(bundle));
 
@@ -448,11 +449,9 @@ private FirebaseAnalytics mFirebaseAnalytics;
         double diagonalInches = Math.sqrt(xInches*xInches + yInches*yInches);
         if (diagonalInches>=7.5){
             // 7.5inch device or bigger
-            //mToast("tablet");
             url = MainActivity.this.getString(R.string.app_urltablet);
         }else{
-            // smaller device
-            //mToast(String.valueOf(diagonalInches));
+            // cellphone device
             url = MainActivity.this.getString(R.string.app_url);
         }
 
@@ -535,6 +534,12 @@ private FirebaseAnalytics mFirebaseAnalytics;
             public void onReceive(Context context, Intent intent) {
 
                 mProgressDialog.dismiss();
+
+                Bundle bundle = new Bundle();
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "DownloadComplete");
+                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "DownloadComplete");
+                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "DownloadComplete");
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
                 if (file.exists()) {
                     Intent install = new Intent(Intent.ACTION_VIEW);
