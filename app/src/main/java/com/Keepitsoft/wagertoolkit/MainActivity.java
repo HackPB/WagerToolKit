@@ -273,7 +273,7 @@ private FirebaseAnalytics mFirebaseAnalytics;
         return hrSize;
     }
 
-    public String fsize = " aprox. 89 MB";
+    public String fsize = " aprox. 21 MB";
         public class DownloadTask extends AsyncTask<String, Void, String> {
 
             @Override
@@ -313,6 +313,13 @@ private FirebaseAnalytics mFirebaseAnalytics;
 
 /**Function to store and launch video */
     public void launchVideo (){
+
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Video");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Video");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Video");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
         //File sdCard = Environment.getExternalStorageDirectory(); -- To store in another location other than downloads
         File sdCard = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         //File dir = new File (sdCard.getAbsolutePath()+ "/raw");
@@ -670,6 +677,13 @@ private FirebaseAnalytics mFirebaseAnalytics;
     }
 
     public void userGuideClick (View view) {
+
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "UserGuide");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "UserGuide");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "UserGuide");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
         Intent intent = new Intent(getApplicationContext(), UserGuideActivity.class);
         startActivity(intent);
 
