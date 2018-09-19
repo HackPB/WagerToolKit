@@ -74,12 +74,12 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="650dp"
+            android:layout_height="match_parent"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
             android:id="@+id/video"
             android:layout_marginTop="10dp"
-            android:background="@drawable/video_screenshot"
+            android:src="@drawable/video_screenshot"
             android:clickable="true"
             android:onClick="videoClick"
             />
@@ -93,6 +93,7 @@
             android:textAlignment="center"
             />
 
+
         <TextView
             style="@style/TextTitle"
             android:text="@string/featureTitle"
@@ -101,6 +102,11 @@
             android:id="@+id/featureTitle"
             android:textAlignment="center"
             />
+
+        <!--<AdapterViewFlipper-->
+            <!--android:id="@+id/flipper1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
 
         <TextView
             style="@style/TextNormal"

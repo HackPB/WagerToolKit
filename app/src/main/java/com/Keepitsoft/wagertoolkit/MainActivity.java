@@ -29,6 +29,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.AdapterViewFlipper;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -47,6 +48,8 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 private FirebaseAnalytics mFirebaseAnalytics;
+
+
 /**Ask storage permission for android 6.0 or sup */
     public boolean isStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
@@ -583,6 +586,11 @@ private FirebaseAnalytics mFirebaseAnalytics;
 
 
 
+
+    //private AdapterViewFlipper flipper1;
+    //int [] flipperImages = {R.drawable.chrysanthemum,R.drawable.desert,R.drawable.hydrangeas,R.drawable.jellyfish,R.drawable.koala};
+    //String [] flipperNames = {"Ladder view","Grid view","Price-volume chart","Personalized filters","Automation trading options"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -591,6 +599,14 @@ private FirebaseAnalytics mFirebaseAnalytics;
         showButtons();
         sources();
         ImageView logo = (ImageView) findViewById(R.id.wagertoolkit);
+
+//        flipper1 = (AdapterViewFlipper)findViewById(R.id.flipper1);
+//        MyAdapter myAdapter = new MyAdapter(getApplicationContext(),flipperNames,flipperImages);
+//        flipper1.setAdapter(myAdapter);
+//        flipper1.setFlipInterval(2000);
+//        flipper1.setAutoStart(true);
+
+
         logo.requestFocus();
 
         // Obtain the FirebaseAnalytics instance.
