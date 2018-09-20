@@ -43,4 +43,5 @@
     <string name="userGuideDescription">Click to view the full user guide and learn all the tricks and capabilities of Wagertool® trading software.</string>
     <string name="multiPlatform">The user guide has all the functions available in the Windows desktop version. Wagertool® is a multi-platform software available for all your devices included in a single subscription plan.</string>
     <string name="copyRight">Copyright © 2016-2017 Wagertool®</string>
+    <string name="privacyPolicy">Privacy Policy</string>
 </resources>

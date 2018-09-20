@@ -705,6 +705,11 @@ private FirebaseAnalytics mFirebaseAnalytics;
 
     }
 
+    public void privacyPolicyClick (View view){
+        Intent intent = new Intent(getApplicationContext(), PrivacyPolicy.class);
+        startActivity(intent);
+    }
+
 }
 
 

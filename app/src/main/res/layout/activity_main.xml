@@ -161,6 +161,16 @@
             android:id="@+id/copyRight"
             android:textAlignment="center"
             />
+        <TextView
+            style="@style/TextNormal"
+            android:text="@string/privacyPolicy"
+            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:id="@+id/privacyPolicy"
+            android:textAlignment="center"
+            android:onClick="privacyPolicyClick"
+            />
 
 
     </LinearLayout>
