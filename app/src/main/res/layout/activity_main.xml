@@ -103,11 +103,6 @@
             android:textAlignment="center"
             />
 
-        <!--<AdapterViewFlipper-->
-            <!--android:id="@+id/flipper1"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent" />-->
-
         <TextView
             style="@style/TextNormal"
             android:text="@string/features"
